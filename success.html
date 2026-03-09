@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Collector's Edge</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --color-bg: #0c0a09;
+            --color-surface: #1c1917;
+            --color-border: #44403c;
+            --color-text: #fafaf9;
+            --color-text-muted: #a8a29e;
+            --color-accent: #d97706;
+            --color-accent-light: #fbbf24;
+            --color-success: #16a34a;
+            --color-success-light: #22c55e;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* SUCCESS ANIMATION */
+        .checkmark-circle {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-success) 0%, #15803d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px rgba(22, 163, 74, 0.3);
+        }
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .checkmark {
+            width: 44px;
+            height: 44px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 80;
+            stroke-dashoffset: 80;
+            animation: drawCheck 0.6s 0.3s ease forwards;
+        }
+        @keyframes drawCheck {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .container h1 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .container h1 span {
+            color: var(--color-accent-light);
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            margin-bottom: 40px;
+            max-width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* INFO CARD */
+        .info-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 36px 32px;
+            text-align: left;
+            margin-bottom: 36px;
+        }
+        .info-card h2 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+        .info-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .info-icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: rgba(217, 119, 6, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        .info-text strong {
+            display: block;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+        .info-text p {
+            font-size: 0.88rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+
+        /* HIGHLIGHT BOX */
+        .first-report {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.1) 0%, rgba(146, 64, 14, 0.1) 100%);
+            border: 1px solid var(--color-accent);
+            border-radius: 12px;
+            padding: 28px 24px;
+            margin-bottom: 36px;
+        }
+        .first-report .time {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-accent-light);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        .first-report .time-label {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+        }
+
+        /* FOOTER NOTE */
+        .footer-note {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 12px;
+            color: #57534e;
+            margin-top: 40px;
+        }
+        .footer-note a {
+            color: #78716c;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Animated Checkmark -->
+        <div class="checkmark-circle">
+            <svg class="checkmark" viewBox="0 0 44 44">
+                <polyline points="10 22 18 30 34 14" />
+            </svg>
+        </div>
+
+        <h1>Welcome to <span>Collector's Edge</span></h1>
+        <p class="subtitle">
+            Your subscription is confirmed. You now have access to daily market intelligence that gives you an edge in the antiques and collectibles market.
+        </p>
+
+        <!-- First Report Highlight -->
+        <div class="first-report">
+            <div class="time">Tomorrow, 6:00 AM</div>
+            <div class="time-label">Your first daily briefing arrives</div>
+        </div>
+
+        <!-- What to Expect -->
+        <div class="info-card">
+            <h2>What Happens Next</h2>
+            <div class="info-item">
+                <div class="info-icon">&#9993;</div>
+                <div class="info-text">
+                    <strong>Check your inbox tomorrow at 6 AM</strong>
+                    <p>Your first Collector's Edge daily briefing will be waiting for you with today's top-ranked items, flip opportunities, and market trends.</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">&#9733;</div>
+                <div class="info-text">
+                    <strong>Top 15 items, ranked and scored</strong>
+                    <p>Every issue includes a power-ranked list of the hottest collectibles with demand velocity, sell speed, and pricing data.</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">&#128200;</div>
+                <div class="info-text">
+                    <strong>Data you can act on immediately</strong>
+                    <p>Use the sell-speed metrics and demand scores to price your inventory and source new finds with confidence.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tip -->
+        <p style="font-size: 0.92rem; color: var(--color-text-muted); font-style: italic;">
+            Tip: Add our sender address to your contacts to make sure your briefing lands in your primary inbox, not spam.
+        </p>
+
+        <p class="footer-note">
+            &copy; 2026 Collector's Edge. Questions? Reach out anytime.<br>
+            You can manage your subscription from the link in any issue.
+        </p>
+    </div>
+
+</body>
+</html>
